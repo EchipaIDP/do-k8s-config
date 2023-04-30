@@ -4,8 +4,8 @@ metadata:
   name: http-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: public
   rules:
     - host: {{ .Values.service.host }}
       http:
