@@ -5,8 +5,8 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: lets-encrypt
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: public
   tls:
     - hosts:
         - {{ .Values.service.host }}
