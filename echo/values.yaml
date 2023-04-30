@@ -1,0 +1,10 @@
+labels:
+  name: echo-test
+
+service:
+  host: echo.idproj.me
+  port: 1234
+
+image:
+  repository: hashicorp/http-echo
+  tag: latest
