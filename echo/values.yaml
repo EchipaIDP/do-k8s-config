@@ -3,7 +3,7 @@ labels:
 
 service:
   host: echo.idproj.me
-  port: 1234
+  port: 5678
 
 image:
   repository: hashicorp/http-echo
