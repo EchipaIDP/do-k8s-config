@@ -4,13 +4,8 @@ metadata:
   name: http-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: lets-encrypt
     kubernetes.io/ingress.class: "nginx"
 spec:
-  tls:
-    - hosts:
-        - {{ .Values.service.host }}
-      secretName: {{ .Values.labels.name }}-tls
   rules:
     - host: {{ .Values.service.host }}
       http:
