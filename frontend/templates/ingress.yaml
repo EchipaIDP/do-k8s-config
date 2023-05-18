@@ -3,10 +3,9 @@ kind: Ingress
 metadata:
   name: {{ .Values.labels.name }}-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: lets-encrypt
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
-  ingressClassName: public
   tls:
     - hosts:
         - {{ .Values.service.host }}
@@ -15,8 +14,8 @@ spec:
     - host: {{ .Values.service.host }}
       http:
         paths:
-          - path: /
-            pathType: Prefix
+          - pathType: Prefix
+            path: /
             backend:
               service:
                 name: {{ .Values.labels.name }}-service
