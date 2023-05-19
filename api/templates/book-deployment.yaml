@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: book
+  template:
+    metadata:
+      labels:
+        app: book
+    spec:
+      containers:
+        - name: book-app
+          image: {{ .Values.image.book }}:{{ .Values.bookImage.tag }}
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 8080

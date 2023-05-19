@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: auth-service
+spec:
+  selector:
+    app: auth
+  ports:
+    - port: 8080

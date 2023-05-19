@@ -1,0 +1,7 @@
+service:
+  authHost: authservice.idproj.me
+  bookHost: bookservice.idproj.me
+
+image:
+  book: ghcr.io/echipaidp/book
+  auth: ghcr.io/echipaidp/auth

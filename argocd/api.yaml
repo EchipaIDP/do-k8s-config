@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'api'
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/EchipaIDP/do-k8s-config.git'
+    path: api
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: authImage.tag
+          value: cb4ac02d9fc32cd19af304eea253808617e05d8c
+        - name: bookImage.tag
+          value: d1497109c8429db07eea6c9081941fbcfa187c7e
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: idp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
