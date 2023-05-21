@@ -40,3 +40,11 @@ Check it here: portainer.idproj.me
 user: admin
 pass: cty5rmv9YTU-wjx4vum
 ```
+
+### Frontend + API
+* Am creat Helm Chart-uri in folder-ul `frontend` si `api`
+* Am creat un namespace `idp` si am dat deploy cu argocd (folder `argocd` pt manifest)
+
+### CI/CD cu Github Actions
+* In fiecare repo am creat un workflow care face build la Dockerfile si deploy in clusterul de k8s cu argocd
+* Deploy action-ul updateaza versiunea imaginii din Helm Chart si Argocd face pull la noua versiune
